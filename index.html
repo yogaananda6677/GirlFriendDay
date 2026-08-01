@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Della Amalia Putri</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Handlee&family=Poppins:wght@300;400;600&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="opening-scene" id="openingScene" aria-label="Hadiah untuk Della">
+        <div class="opening-card">
+            <p class="opening-eyebrow">Ada sesuatu untukmu, Della</p>
+            <div class="cat-gift" aria-hidden="true">
+                <div class="cat-head">
+                    <span class="cat-ear left"></span><span class="cat-ear right"></span>
+                    <span class="cat-eye left"></span><span class="cat-eye right"></span>
+                    <span class="cat-nose"></span>
+                </div>
+                <div class="gift-lid"><span></span></div>
+                <div class="gift-box"><span></span></div>
+                <i class="mini-heart h1">♥</i><i class="mini-heart h2">♥</i><i class="mini-heart h3">♥</i>
+            </div>
+            <h1>Sebuah cerita kecil<br>yang kubuat untukmu.</h1>
+            <p class="opening-copy">Pakai earphone kalau ada, lalu buka pelan-pelan.</p>
+            <button class="open-book-button" id="openBookButton" type="button" onclick="document.getElementById('openingScene').classList.add('is-opened');document.querySelector('.book-container').classList.remove('waiting')">Buka hadiahnya</button>
+        </div>
+    </section>
+
+    <div class="music-player" id="musicPlayer">
+        <audio id="backgroundMusic" loop preload="metadata">
+            <source src="assets/sounds/lagu.mp3" type="audio/mpeg">
+        </audio>
+        <button id="musicToggle" class="music-toggle" type="button" aria-label="Putar lagu" aria-pressed="false">
+            <span class="music-icon" aria-hidden="true">&#9835;</span>
+            <span id="musicLabel">Putar lagu</span>
+        </button>
+    </div>
+    <div class="book-container waiting">
+        <div class="book">
+            <div class="page-controls">
+                <button id="prevPage" class="nav-button left"></button>
+                <button id="nextPage" class="nav-button right"></button>
+            </div>
+            <div class="pages" id="pages">
+                <!-- Cover Page (Halaman 1) -->
+                <div class="page page-cover page-right" data-page="1">
+                    <div class="page-content cover-content">
+                        <h1 class="book-title">Untuk Della</h1>
+                        <p class="book-subtitle">Sedikit cerita tentang kita</p>
+                        <div class="cover-photo-container">
+                            <img src="assets/images/WhatsApp Image 2026-07-25 at 08.29.19.jpeg" alt="Foto Della Amalia Putri" class="cover-photo">
+                            <span class="photo-corner top-left"></span>
+                            <span class="photo-corner top-right"></span>
+                            <span class="photo-corner bottom-left"></span>
+                            <span class="photo-corner bottom-right"></span>
+                        </div>
+                        <p class="greeting">Selamat Hari Girlfriend, Della Amalia Putri</p>
+                        <div class="cover-decoration heart-deco"></div>
+                        <div class="cover-decoration flower-deco"></div>
+                    </div>
+                </div>
+
+                <!-- Page 2 & 3 (Spread) -->
+                <div class="page page-left" data-page="2">
+                    <div class="page-content content-spread-left">
+                        <h2 class="chapter-title">Tentang Awal Kita</h2>
+                        <div class="photo-item rotate-left-sm">
+                            <img src="assets/images/WhatsApp Image 2026-03-15 at 18.13.39.jpeg" alt="Kenangan awal bersama Della">
+                            <p class="photo-caption">Salah satu awal yang selalu ingin kuingat.</p>
+                        </div>
+                        <p class="text-block">Aku masih suka mengingat bagaimana semuanya dimulai. Dari obrolan sederhana, tawa yang datang tanpa rencana, sampai akhirnya kehadiranmu menjadi bagian penting dalam hari-hariku.</p>
+                        <div class="decorative-sticker star-sticker"></div>
+                    </div>
+                </div>
+                <div class="page page-right" data-page="3">
+                    <div class="page-content content-spread-right">
+                        <div class="photo-item rotate-right-sm">
+                            <img src="assets/images/WhatsApp Image 2026-03-21 at 16.21.38.jpeg" alt="Momen bersama Della">
+                            <p class="photo-caption">Bersamamu, hal biasa terasa lebih berarti.</p>
+                        </div>
+                        <p class="text-block">Aku menyukai caramu bercerita, caramu peduli, dan caramu menjadi dirimu sendiri. Kamu tidak harus selalu sempurna untuk membuatku merasa beruntung memilikimu.</p>
+                        <p class="quote-text">Terima kasih sudah hadir dan bertumbuh bersamaku.</p>
+                    </div>
+                </div>
+
+                <!-- Page 4 & 5 (Spread) -->
+                <div class="page page-left" data-page="4">
+                    <div class="page-content content-spread-left">
+                        <h2 class="chapter-title">Hari-Hari Bersamamu</h2>
+                        <p class="text-block">Tidak semua momen kita harus besar atau istimewa. Kadang, waktu yang tenang dan percakapan kecil justru menjadi bagian yang paling aku rindukan.</p>
+                        <div class="photo-item landscape rotate-right-lg">
+                            <img src="assets/images/WhatsApp Image 2026-04-15 at 07.04.04.jpeg" alt="Perjalanan bersama Della">
+                            <p class="photo-caption">Ke mana pun, selama ada kamu di ceritanya.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page page-right" data-page="5">
+                    <div class="page-content content-spread-right">
+                        <div class="photo-item portrait rotate-left-lg">
+                            <img src="assets/images/WhatsApp Image 2026-05-30 at 19.46.04.jpeg" alt="Hari sederhana bersama Della">
+                            <p class="photo-caption">Bahagia sering kali sesederhana ini.</p>
+                        </div>
+                        <p class="text-block">Terima kasih karena sudah menjadi teman berbagi, tempat bercerita, dan seseorang yang selalu ingin aku temui setelah hari yang panjang.</p>
+                        <div class="decorative-tape tape-top"></div>
+                        <div class="decorative-tape tape-bottom"></div>
+                    </div>
+                </div>
+
+                <!-- Page 6 & 7 (Spread - Placeholder for more pages) -->
+                <div class="page page-left" data-page="6">
+                    <div class="page-content centered-text">
+                        <h2 class="chapter-title">Tentang Dirimu</h2>
+                        <p>Aku mengagumi banyak hal darimu: ketulusanmu, caramu bertahan, dan perhatian-perhatian kecil yang mungkin sering tidak kamu sadari. Tetaplah menjadi Della yang aku kenal—jujur, hangat, dan apa adanya.</p>
+                        <div class="decorative-stamp"></div>
+                    </div>
+                </div>
+                <div class="page page-right" data-page="7">
+                    <div class="page-content single-photo-layout">
+                        <div class="photo-item full-page-photo">
+                            <img src="assets/images/WhatsApp Image 2026-07-16 at 12.56.14.jpeg" alt="Senyum Della Amalia Putri">
+                            <p class="photo-caption">Senyummu masih menjadi salah satu pemandangan favoritku.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 8 & 9 (Spread - Placeholder for more pages) -->
+                <div class="page page-left" data-page="8">
+                    <div class="page-content full-text-layout">
+                        <h2 class="chapter-title">Untuk Hari Esok</h2>
+                        <p>Aku tidak ingin memberi janji yang terdengar berlebihan. Aku hanya ingin terus belajar menjadi pasangan yang lebih baik: mendengarkanmu, menghargaimu, dan tetap ada saat keadaan tidak selalu mudah.</p>
+                        <p>Selamat merayakan hari istimewa ini, Della. Semoga besok dan hari-hari setelahnya memberi kita lebih banyak alasan untuk saling memilih.</p>
+                    </div>
+                </div>
+                <div class="page page-right page-back-cover" data-page="9">
+                    <div class="page-content back-cover-content">
+                        <p class="farewell-message">Untuk Della Amalia Putri,</p>
+                        <p class="signature-text">dengan sayang, dari seseorang yang beruntung memilikimu.</p>
+                        <div class="final-hearts">
+                            <span class="big-heart">&#10084;&#65039;</span>
+                            <span class="small-heart">&#10084;&#65039;</span>
+                        </div>
+                        <button class="final-surprise-button" id="openFinaleButton" type="button">Lihat kejutan terakhir</button>
+                        <div class="strawberry-decoration"></div>
+                    </div>
+                </div>
+
+                <!-- Last invisible page to allow flipping the back cover -->
+                <div class="page page-right hidden-page" data-page="10">
+                    <div class="page-content"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="midway-surprise" id="midwaySurprise" aria-hidden="true">
+        <div class="midway-card">
+            <button class="midway-close" id="midwayClose" type="button" aria-label="Lanjut membaca">×</button>
+            <div class="hug-cats" aria-hidden="true">
+                <span class="hug-cat cat-one">🐱</span>
+                <span class="hug-heart">♥</span>
+                <span class="hug-cat cat-two">🐱</span>
+            </div>
+            <span class="midway-label">Jeda sebentar</span>
+            <h2>Kalau hari ini terasa berat, ingat kamu nggak harus melewatinya sendirian.</h2>
+            <p>Ada aku yang akan tetap mendengarkanmu.</p>
+            <button class="continue-button" id="continueButton" type="button">Lanjutkan ceritanya</button>
+        </div>
+    </section>
+
+    <section class="photo-finale" id="photoFinale" aria-hidden="true">
+        <div class="finale-top">
+            <div class="teddy-hero">
+                <span class="teddy-badge">Kejutan terakhir</span>
+                <img src="assets/images/teddy-surprise.webp" alt="Boneka teddy di dalam kotak hadiah untuk Della">
+                <span class="teddy-sparkle sparkle-one">✦</span>
+                <span class="teddy-sparkle sparkle-two">♥</span>
+                <span class="teddy-sparkle sparkle-three">✦</span>
+            </div>
+            <div class="finale-heading">
+                <span class="finale-kicker">Hadiah kecil untuk orang yang istimewa</span>
+                <h2>Semoga boneka ini bisa menemani hari-harimu.</h2>
+                <p>Saat aku tidak ada di dekatmu, peluk dia sebentar. Anggap saja ada sedikit rasa sayangku yang ikut tinggal di sana.</p>
+                <div class="finale-note"><span>Untuk Della</span><strong>dengan penuh sayang.</strong></div>
+            </div>
+        </div>
+
+        <div class="memories-label"><span></span><p>Kereta kecil berisi kenangan kita</p><span></span></div>
+        <div class="photo-train" aria-label="Rangkaian kenangan bersama Della">
+            <div class="photo-train-track">
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-03-16 at 08.23.33.jpeg" alt="Kenangan bersama Della 1"><figcaption>Awal yang baik</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-03-19 at 15.39.31.jpeg" alt="Kenangan bersama Della 2"><figcaption>Tawa yang sama</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-03-21 at 07.21.30.jpeg" alt="Kenangan bersama Della 3"><figcaption>Hari sederhana</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-03-21 at 22.02.55.jpeg" alt="Kenangan bersama Della 4"><figcaption>Cerita favorit</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-04-07 at 15.32.35.jpeg" alt="Kenangan bersama Della 5"><figcaption>Tempat pulang</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-04-11 at 18.42.22.jpeg" alt="Kenangan bersama Della 6"><figcaption>Waktu yang berharga</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-04-14 at 17.27.46.jpeg" alt="Kenangan bersama Della 7"><figcaption>Kita, apa adanya</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-05-30 at 19.48.07.jpeg" alt="Kenangan bersama Della 8"><figcaption>Hal-hal kecil</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-02 at 12.24.00.jpeg" alt="Kenangan bersama Della 9"><figcaption>Hari yang kuingat</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-02 at 12.24.35.jpeg" alt="Kenangan bersama Della 10"><figcaption>Selalu menyenangkan</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-03 at 17.45.59.jpeg" alt="Kenangan bersama Della 11"><figcaption>Satu perjalanan</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-07 at 12.37.53.jpeg" alt="Kenangan bersama Della 12"><figcaption>Banyak cerita</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-11 at 14.13.05.jpeg" alt="Kenangan bersama Della 13"><figcaption>Masih tentang kita</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-11 at 16.50.09.jpeg" alt="Kenangan bersama Della 14"><figcaption>Waktu bersama</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-24 at 14.57.26.jpeg" alt="Kenangan bersama Della 15"><figcaption>Hari-hari terbaik</figcaption></figure>
+                <figure class="train-car"><img src="assets/images/WhatsApp Image 2026-07-25 at 08.29.19.jpeg" alt="Kenangan bersama Della 16"><figcaption>Sampai nanti</figcaption></figure>
+            </div>
+        </div>
+
+        <button class="replay-button" id="replayButton" type="button">Buka lagi ceritanya</button>
+        <small class="music-credit">Musik: “Lovely Piano Song” — FreePD (CC0)</small>
+    </section>
+
+    <div class="particle-container" id="particleContainer"></div>
+
+    <script src="assets/page-flip.browser.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
