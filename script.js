@@ -18,12 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const midwayClose = document.getElementById('midwayClose');
     const continueButton = document.getElementById('continueButton');
     const openFinaleButton = document.getElementById('openFinaleButton');
+    const yesLoveButton = document.getElementById('yesLoveButton');
+    const noLoveButton = document.getElementById('noLoveButton');
+    const loveResponse = document.getElementById('loveResponse');
+    const kissButton = document.getElementById('kissButton');
+    const kissCount = document.getElementById('kissCount');
+    const particleContainer = document.getElementById('particleContainer');
+    const kissStorm = document.getElementById('kissStorm');
+    const capsuleMessage = document.getElementById('capsuleMessage');
+    const capsuleCards = [...document.querySelectorAll('.capsule-card')];
 
     let autoFlipTimer;
     let finaleVisible = false;
     let storyStarted = false;
     let midwayWasShown = false;
     let midwayVisible = false;
+    let kisses = 0;
 
     hiddenPage?.remove();
 
@@ -159,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeMidwaySurprise() {
         midwayVisible = false;
+        noLoveButton?.classList.remove('is-running');
+        if (noLoveButton) noLoveButton.removeAttribute('style');
         midwaySurprise.classList.remove('is-visible');
         midwaySurprise.setAttribute('aria-hidden', 'true');
         scheduleAutoFlip();
@@ -189,10 +201,105 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
     replayButton.addEventListener('click', replayStory);
     openFinaleButton.addEventListener('click', showFinale);
-    document.addEventListener('click', event => {
-        if (event.target.closest('#openFinaleButton')) showFinale();
+
+    function burstHearts(origin, amount = 16) {
+        if (!particleContainer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const rect = origin?.getBoundingClientRect?.() || { left: innerWidth / 2, top: innerHeight / 2, width: 0, height: 0 };
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const symbols = ['♥', '♡', '✨', '💗', '🌷'];
+        for (let i = 0; i < amount; i += 1) {
+            const particle = document.createElement('span');
+            particle.className = 'love-particle';
+            particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            particle.style.setProperty('--x', `${x}px`);
+            particle.style.setProperty('--y', `${y}px`);
+            particle.style.setProperty('--dx', `${(Math.random() - .5) * 260}px`);
+            particle.style.setProperty('--dy', `${-70 - Math.random() * 210}px`);
+            particle.style.setProperty('--rot', `${(Math.random() - .5) * 120}deg`);
+            particle.style.setProperty('--size', `${14 + Math.random() * 20}px`);
+            particleContainer.appendChild(particle);
+            particle.addEventListener('animationend', () => particle.remove(), { once: true });
+        }
+    }
+
+    function moveNoButton() {
+        if (!noLoveButton) return;
+        const margin = 18;
+        const width = noLoveButton.offsetWidth || 90;
+        const height = noLoveButton.offsetHeight || 44;
+        const maxX = Math.max(margin, innerWidth - width - margin);
+        const maxY = Math.max(margin, innerHeight - height - margin);
+        noLoveButton.classList.add('is-running');
+        noLoveButton.style.left = `${margin + Math.random() * (maxX - margin)}px`;
+        noLoveButton.style.top = `${margin + Math.random() * (maxY - margin)}px`;
+        loveResponse.textContent = 'Hehe, tombol itu memang agak pemalu 😝';
+    }
+
+    noLoveButton?.addEventListener('pointerenter', moveNoButton);
+    noLoveButton?.addEventListener('click', moveNoButton);
+    noLoveButton?.addEventListener('touchstart', event => {
+        event.preventDefault();
+        moveNoButton();
+    }, { passive: false });
+
+    yesLoveButton?.addEventListener('click', () => {
+        loveResponse.textContent = 'Nah, ini baru jawaban yang benar! Aku juga sayang kamu 💗';
+        continueButton.classList.add('is-ready');
+        noLoveButton?.classList.remove('is-running');
+        if (noLoveButton) noLoveButton.style.display = 'none';
+        burstHearts(yesLoveButton, 24);
     });
-    midwayClose.addEventListener('click', closeMidwaySurprise);
+
+    function launchKissStorm() {
+        if (!kissStorm) return;
+        kissStorm.querySelectorAll('.kiss-drop').forEach(drop => drop.remove());
+        const symbols = ['💋', '😘', '😚', '💗', '💕', '🩷'];
+        const total = window.matchMedia('(max-width: 680px)').matches ? 52 : 72;
+        for (let i = 0; i < total; i += 1) {
+            const kiss = document.createElement('span');
+            kiss.className = 'kiss-drop';
+            kiss.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            kiss.style.left = `${Math.random() * 100}%`;
+            kiss.style.setProperty('--kiss-size', `${22 + Math.random() * 34}px`);
+            kiss.style.setProperty('--kiss-time', `${1.7 + Math.random() * 1.25}s`);
+            kiss.style.setProperty('--kiss-delay', `${Math.random() * .6}s`);
+            kiss.style.setProperty('--kiss-drift', `${(Math.random() - .5) * 150}px`);
+            kiss.style.setProperty('--kiss-rotate', `${(Math.random() - .5) * 420}deg`);
+            kissStorm.appendChild(kiss);
+        }
+        kissStorm.classList.remove('is-active');
+        void kissStorm.offsetWidth;
+        kissStorm.classList.add('is-active');
+        window.setTimeout(() => {
+            kissStorm.classList.remove('is-active');
+            kissStorm.querySelectorAll('.kiss-drop').forEach(drop => drop.remove());
+        }, 3200);
+    }
+
+    kissButton?.addEventListener('click', () => {
+        kisses += 1;
+        const messages = [
+            'Cium virtualnya sudah sampai ke Della 💋',
+            'Bonus satu lagi karena kamu lucu banget 😚',
+            'Jangan senyum sendiri… nanti ketahuan 🤭',
+            `${kisses} hujan cium terkirim. Stok sayangnya tetap tidak terbatas 💗`
+        ];
+        kissCount.textContent = messages[Math.min(kisses - 1, messages.length - 1)];
+        launchKissStorm();
+        burstHearts(kissButton, 24);
+    });
+
+    capsuleCards.forEach(card => {
+        card.addEventListener('click', () => {
+            capsuleCards.forEach(item => item.classList.remove('is-open'));
+            card.classList.add('is-open');
+            if (capsuleMessage) capsuleMessage.textContent = card.dataset.message || '';
+            burstHearts(card, 10);
+        });
+    });
+
+        midwayClose.addEventListener('click', closeMidwaySurprise);
     continueButton.addEventListener('click', closeMidwaySurprise);
 
     openBookButton.addEventListener('click', () => {
@@ -201,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         openingScene.setAttribute('aria-hidden', 'true');
         bookShell.classList.remove('waiting');
         tryStartMusic();
+        burstHearts(openBookButton, 20);
         window.requestAnimationFrame(() => {
             initializePageFlip();
             scheduleAutoFlip();

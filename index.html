@@ -22,8 +22,8 @@
                 <i class="mini-heart h1">♥</i><i class="mini-heart h2">♥</i><i class="mini-heart h3">♥</i>
             </div>
             <h1>Sebuah cerita kecil<br>yang kubuat untukmu.</h1>
-            <p class="opening-copy">Pakai earphone kalau ada, lalu buka pelan-pelan.</p>
-            <button class="open-book-button" id="openBookButton" type="button" onclick="document.getElementById('openingScene').classList.add('is-opened');document.querySelector('.book-container').classList.remove('waiting')">Buka hadiahnya</button>
+            <p class="opening-copy">Pakai earphone kalau ada, lalu buka pelan-pelan. Tenang, ini bukan tagihan.</p>
+            <button class="open-book-button" id="openBookButton" type="button">Buka hadiahnya</button>
         </div>
     </section>
 
@@ -110,8 +110,11 @@
                 <!-- Page 6 & 7 (Spread - Placeholder for more pages) -->
                 <div class="page page-left" data-page="6">
                     <div class="page-content centered-text">
-                        <h2 class="chapter-title">Tentang Dirimu</h2>
-                        <p>Aku mengagumi banyak hal darimu: ketulusanmu, caramu bertahan, dan perhatian-perhatian kecil yang mungkin sering tidak kamu sadari. Tetaplah menjadi Della yang aku kenal—jujur, hangat, dan apa adanya.</p>
+                        <h2 class="chapter-title">Kenapa Harus Kamu?</h2>
+                        <p>Karena kamu bisa membuat hariku membaik hanya dengan satu pesan. Karena tawamu menular. Karena saat kamu ngambek pun tetap lucu—walaupun jujur, aku kadang ikut panik.</p>
+                        <div class="cute-reasons" aria-label="Alasan aku menyayangimu">
+                            <span>100% bikin kangen</span><span>200% menggemaskan</span><span>∞ kali kupilih lagi</span>
+                        </div>
                         <div class="decorative-stamp"></div>
                     </div>
                 </div>
@@ -128,8 +131,13 @@
                 <div class="page page-left" data-page="8">
                     <div class="page-content full-text-layout">
                         <h2 class="chapter-title">Untuk Hari Esok</h2>
-                        <p>Aku tidak ingin memberi janji yang terdengar berlebihan. Aku hanya ingin terus belajar menjadi pasangan yang lebih baik: mendengarkanmu, menghargaimu, dan tetap ada saat keadaan tidak selalu mudah.</p>
-                        <p>Selamat merayakan hari istimewa ini, Della. Semoga besok dan hari-hari setelahnya memberi kita lebih banyak alasan untuk saling memilih.</p>
+                        <p>Aku tidak mau menjanjikan hubungan yang selalu sempurna. Aku cuma mau terus belajar menjadi pasangan yang lebih baik: mendengarkanmu, menghargaimu, dan tetap menggenggam tanganmu saat hari sedang tidak ramah.</p>
+                        <div class="love-contract">
+                            <strong>Kontrak pacar tidak resmi:</strong>
+                            <span>Wajib cerita kalau sedih.</span>
+                            <span>Wajib makan tepat waktu.</span>
+                            <span>Wajib tetap jadi pacarku. Masa berlaku: selamanya.</span>
+                        </div>
                     </div>
                 </div>
                 <div class="page page-right page-back-cover" data-page="9">
@@ -164,8 +172,16 @@
             </div>
             <span class="midway-label">Jeda sebentar</span>
             <h2>Kalau hari ini terasa berat, ingat kamu nggak harus melewatinya sendirian.</h2>
-            <p>Ada aku yang akan tetap mendengarkanmu.</p>
-            <button class="continue-button" id="continueButton" type="button">Lanjutkan ceritanya</button>
+            <p>Ada aku yang akan tetap mendengarkanmu. Tapi sebelum lanjut, jawab satu pertanyaan penting:</p>
+            <div class="love-question">
+                <strong>Kamu sayang aku juga, kan?</strong>
+                <div class="love-answer-row">
+                    <button class="continue-button" id="yesLoveButton" type="button">Iya, sayang banget 💗</button>
+                    <button class="no-love-button" id="noLoveButton" type="button" aria-label="Jawaban tidak yang sulit ditekan">Nggak 😝</button>
+                </div>
+                <span class="love-response" id="loveResponse" aria-live="polite"></span>
+            </div>
+            <button class="continue-button continue-story" id="continueButton" type="button">Lanjutkan ceritanya</button>
         </div>
     </section>
 
@@ -180,12 +196,28 @@
             </div>
             <div class="finale-heading">
                 <span class="finale-kicker">Hadiah kecil untuk orang yang istimewa</span>
-                <h2>Semoga boneka ini bisa menemani hari-harimu.</h2>
-                <p>Saat aku tidak ada di dekatmu, peluk dia sebentar. Anggap saja ada sedikit rasa sayangku yang ikut tinggal di sana.</p>
-                <div class="finale-note"><span>Untuk Della</span><strong>dengan penuh sayang.</strong></div>
+                <h2>Semoga boneka ini bisa menemanimu saat aku belum bisa ada di sampingmu.</h2>
+                <p>Kalau kamu sedang capek, sedih, kesal, atau cuma ingin dipeluk, peluk boneka ini ya. Anggap saja itu aku yang sedang bilang, “sini, istirahat dulu… kamu sudah hebat hari ini.”</p>
+                <div class="finale-note"><span>Untuk Della</span><strong>jangan lupa, kamu selalu punya tempat pulang di aku.</strong></div>
+                <div class="tiny-promises" aria-label="Janji kecil untuk Della">
+                    <span>Peluk saat rindu 🤍</span><span>Cubit saat kesal 😝</span><span>Bawa tidur kalau mau 🧸</span>
+                </div>
+                <button class="kiss-button" id="kissButton" type="button">Tekan untuk hujan cium virtual 💋</button>
+                <p class="kiss-count" id="kissCount" aria-live="polite">Awas, sekali ditekan bisa bikin layar penuh cium.</p>
             </div>
         </div>
 
+
+        <section class="love-capsule" aria-label="Pesan-pesan kecil untuk Della">
+            <div class="capsule-title"><span>💌</span><div><small>Buka saat kamu membutuhkan ini</small><h3>Pesan kecil dari aku</h3></div></div>
+            <div class="capsule-grid">
+                <button class="capsule-card" type="button" data-message="Saat kamu sedih: nggak apa-apa kalau hari ini kamu belum kuat. Cerita pelan-pelan ke aku, ya. Aku nggak akan pergi."><span>🌧️</span><strong>Saat sedih</strong><small>ketuk aku</small></button>
+                <button class="capsule-card" type="button" data-message="Saat kamu capek: berhenti sebentar bukan berarti kalah. Minum, makan, rebahan, lalu biarkan aku menemanimu."><span>🌙</span><strong>Saat capek</strong><small>ketuk aku</small></button>
+                <button class="capsule-card" type="button" data-message="Saat kamu rindu: aku juga. Peluk bonekanya erat-erat, lalu bayangkan aku sedang meluk kamu balik."><span>🧸</span><strong>Saat rindu</strong><small>ketuk aku</small></button>
+                <button class="capsule-card" type="button" data-message="Saat kamu senang: ceritakan semuanya. Aku ingin jadi orang yang ikut tersenyum paling lebar karena bahagiamu."><span>☀️</span><strong>Saat bahagia</strong><small>ketuk aku</small></button>
+            </div>
+            <div class="capsule-message" id="capsuleMessage" aria-live="polite">Pilih satu pesan di atas, ya.</div>
+        </section>
         <div class="memories-label"><span></span><p>Kereta kecil berisi kenangan kita</p><span></span></div>
         <div class="photo-train" aria-label="Rangkaian kenangan bersama Della">
             <div class="photo-train-track">
@@ -213,6 +245,9 @@
     </section>
 
     <div class="particle-container" id="particleContainer"></div>
+    <div class="kiss-storm" id="kissStorm" aria-hidden="true">
+        <div class="kiss-storm-message"><span>💋</span><strong>Cium virtual untuk Della!</strong><small>diterima dengan sayang</small></div>
+    </div>
 
     <script src="assets/page-flip.browser.js"></script>
     <script src="script.js"></script>
